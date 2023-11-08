@@ -1,23 +1,29 @@
-from customer.common import chk_input_data
 def input_i(customers, index):
     print('고객정보 입력')
     customer = { 'name': '', 'gender': '', 'email': '', 'year': 0 }
-    # def chk_name(x):
-    #     t = True
-    #     if len(x) > 2: True else: t = False
-    #     return t
-    customer['name'] = chk_input_data('이름을 입력하세요: ',
-                                      lambda x: True if len(x) > 2 else False,
-                                      upper=True)
-    customer['gender'] = chk_input_data('성별 (M/F)를 입력하세요 : ',
-                                        lambda x: True if x in ('M', 'F') else False,
-                                        upper=True)
-    customer['email'] = chk_input_data('이메일 주소를 입력하세요 : ',
-                                       lambda x: True if '@' in x else False,
-                                       upper=True)
-    customer['year'] = chk_input_data('출생년도 4자리 입력하세요 : ',
-                                      lambda  x: True if len(x) == 4 and x.isdigit() else False,
-                                      upper=True)
+    customer['name'] = input('이름을 입력하세요 : ')
+    while True:
+        customer['gender'] = input('성별 (M/F)를 입력하세요 : ').upper()
+        if customer['gender'] in ('M', 'F'):
+            break
+        else:
+            print('잘못 입력하셨습니다. 다시 입력 해 주세요.')
+    while True:
+        customer['email'] = input('이메일 주소를 입력하세요 : ')
+        golbang = '@' in customer['email']
+        if golbang:
+            break
+        else:
+            print('"@"를 포함한 이메일 주소를 입력하세요.')
+    # 이메일 중복 로직 추가~~~~
+
+    while True:
+        customer['year'] = input('출생년도 4자리 입력하세요 : ')
+        check = len(customer['year']) == 4 and customer['year'].isdigit()
+        if check:
+            break
+        else:
+            print('잘 입력 해라....')
     print(customer)
     customers.append(customer)
     print(customers)

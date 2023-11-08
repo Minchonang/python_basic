@@ -20,3 +20,8 @@ def chk_input_data(msg, func, upper=True):
         else:
             print('잘못 입력하셨습니다. 다시 입력해 주세요.')
     return x
+
+def customer_read():
+    with open('../customer/customer_list.txt', 'r') as read_customer_list:
+        print(read_customer_list.readlines())
+
