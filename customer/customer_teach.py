@@ -22,21 +22,23 @@
 
 from customer.common import customer_read
 from customer.common import input_menu
+from customer.common import input_s
 from customer.insert.input_i import input_i
 from customer.read.input_c import input_c
 from customer.read.input_n import input_n
 from customer.read.input_p import input_p
 from customer.update.input_u import input_u
 from customer.delete.input_d import input_d
-# import os
-
+import pickle
+import sys
+    # print(os.getcwd())
 
 
 # Main
 def main():
-    customers = list()
+    customers = customer_read()
     index = -1
-    customer_read(customers, index)
+    customer_read()
 
     while True:
         menu = input_menu()
@@ -55,12 +57,17 @@ def main():
         elif menu == 'U':
             input_u(customers, index)
 
+        elif menu == 'S':
+            input_s(customers)
+
         elif menu == 'D':
             input_d(customers, index)
 
         elif menu == 'Q':
+            input_s(customers)
             print('프로그램을 종료합니다.')
-            break
+            sys.exit()
+            # break
         else:
             print('잘못 입력하셨습니다. 다시 입력해 주세요')
 
