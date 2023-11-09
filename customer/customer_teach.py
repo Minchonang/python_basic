@@ -34,13 +34,10 @@ from customer.delete.input_d import input_d
 
 # Main
 def main():
-    # print('>>>>>>>>>', os.getcwd())
-    # customer_read = open('../customer/customer_list.txt', 'r')
-    # customer_read.close()
-    customer_read()
-
     customers = list()
     index = -1
+    customer_read(customers, index)
+
     while True:
         menu = input_menu()
         if menu == 'I':

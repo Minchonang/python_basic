@@ -1,3 +1,5 @@
+import os
+import pickle
 def input_menu():
     return input('''
         다음 중에서 하실 작업의 메뉴를 입력하세요.
@@ -10,6 +12,17 @@ def input_menu():
         Q - 프로그램 종료
     ''').upper()
 
+def customer_read(customers, index):
+    with open('../customer/customer_list.pickle', 'rb') as read_customer_list:
+        if os.path.getsize('../customer/customer_list.pickle') > 0:
+            customers = pickle.loads(read_customer_list)
+            index += len(customers)
+            print('저장된 고객 목록: ',customers)
+        else:
+            print('저장된 고객 정보가 없습니다.')
+        return index
+
+
 def chk_input_data(msg, func, upper=True):
     while True:
         x = input(msg)
@@ -20,8 +33,4 @@ def chk_input_data(msg, func, upper=True):
         else:
             print('잘못 입력하셨습니다. 다시 입력해 주세요.')
     return x
-
-def customer_read():
-    with open('../customer/customer_list.txt', 'r') as read_customer_list:
-        print(read_customer_list.readlines())
 
