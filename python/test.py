@@ -7,8 +7,8 @@
 #     9.0
 # ]
 #
-# for i in range(5):
-#     for j in range(5):
+# for i new_insert range(5):
+#     for j new_insert range(5):
 #         if score[j] < score[j + 1]:
 #             temp = score[j]
 #             score[j] = score[j + 1]

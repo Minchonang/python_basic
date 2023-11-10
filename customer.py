@@ -21,24 +21,24 @@
 # customer = { 'name':'', 'gender': '', 'email': '', 'year': 1999 }
 
 from customer.common import customer_read
-from customer.common import input_menu
 from customer.common import input_s
-from customer.insert.input_i import input_i
+from customer.common import input_menu
+from customer.new_insert.input_i import input_i
 from customer.read.input_c import input_c
 from customer.read.input_n import input_n
 from customer.read.input_p import input_p
 from customer.update.input_u import input_u
 from customer.delete.input_d import input_d
-import pickle
 import sys
-    # print(os.getcwd())
+# import os
+# import pickle
 
 
 # Main
 def main():
+    # print(os.getcwd())
     customers = customer_read()
     index = -1
-    customer_read()
 
     while True:
         menu = input_menu()

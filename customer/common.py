@@ -13,8 +13,9 @@ def input_menu():
         Q - 프로그램 종료
     ''').upper()
 
+file_path = '../customer/customer_list.pickle'
 def customer_read():
-    file_path = '../customer/customer_list.pickle'
+    # print(os.getcwd())
     if os.path.exists(file_path):
         with open(file_path, 'rb') as read_customer_list:
             return pickle.load(read_customer_list)
@@ -23,7 +24,7 @@ def customer_read():
 
 def input_s(customers):
     try:
-        with open('../customer/customer_list.pickle', 'wb') as save_customer_list:
+        with open(file_path, 'wb') as save_customer_list:
             pickle.dump(customers, save_customer_list)
     except Exception as e:
         print('저장 오류: ', e)

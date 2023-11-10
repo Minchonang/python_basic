@@ -3,7 +3,7 @@ import pickle
 import re
 
 def check_email_addr(email_addr):
-    # regex = re.compile('^[a-zA-Z][a-zA-Z0-9]{3,50}@[a-zA-Z0-9]{2,8}[.][a-zA-Z]{2,5}$')
+    # regex = re.compile('^[a-zA-Z][a-zA-Z0-9]{3, 50}@[a-zA-Z0-9]{2, 8}[.][a-zA-Z]{2,5}$')
     regex = re.compile("")
     return regex.search(email_addr)
 
