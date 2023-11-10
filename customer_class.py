@@ -3,6 +3,7 @@ from customer_mvc_model import CustomerModel
 import sys
 import os
 import pickle
+import re
 
 file_path = 'customer/customer_list.pickle'
 
